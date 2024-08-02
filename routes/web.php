@@ -14,5 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'this is the home page';
 });
+
+Route::get('/greet', function () {
+    return 'Hello World on Home page';
+});
+
+Route::get('/pst/{post}/com/{comment}', function (string $post, string $comment) {
+    return "Post id is ".$post."<br>And The Comment id is ".$comment;
+});
+Route::get('/pst/{post}/rat/{rats}', function (string $post, string $rats) {
+    return "Post id is ".$post."<br>And The rats id is ".$rats;
+});
+
+Route::prefix('tst1')->group(base_path('routes/testrout1.php'));
